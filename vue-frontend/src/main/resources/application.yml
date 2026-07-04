@@ -1,0 +1,31 @@
+
+
+spring:
+  application:
+    name: agent-java
+
+  datasource:
+    driver-class-name: YOUR_DRIVER_CLASS_NAME
+    url: YOUR_DATABASE_URL
+    username: YOUR_DATABASE_USERNAME
+    password: YOUR_DATABASE_PASSWORD
+  cloud:
+    nacos:
+      server-addr: YOUR_NACOS_SERVER_ADDRESS
+    openfeign:
+      client:
+        config:
+          ai-agent-service:
+            loggerLevel: FULL
+logging:
+  level:
+    com.agent.feign: DEBUG
+    com.alibaba.nacos: WARN
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.agent.entity
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 8081
